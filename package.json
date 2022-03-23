@@ -1,0 +1,42 @@
+{
+  "name": "udacity",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "testing": "npx tsc && jasmine",
+    "develop": "nodemon ./src/index.ts",
+    "building": "npx tsc ",
+    "starting": "npm run building && node ./build/index.js",
+    "formatting": "prettier --write src/**/*.ts",
+    "linting": "eslint . ",
+    "linting:fix": "eslint . --fix "
+  },
+  "author": "shehab amr",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sharp": "^0.30.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/fs-extra": "^9.0.13",
+    "@types/jasmine": "^3.10.2",
+    "@types/node": "^16.11.12",
+    "@types/sharp": "^0.30.0",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^4.0.2",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.5.2"
+  }
+}
