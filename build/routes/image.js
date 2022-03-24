@@ -44,7 +44,6 @@ var functionality_1 = require("../Data/functionality");
 var fs_1 = __importDefault(require("fs"));
 var data_1 = require("../Data/data");
 var path_1 = __importDefault(require("path"));
-var sharp_1 = __importDefault(require("sharp"));
 var imageRouter = express_1.default.Router();
 imageRouter.get("/app", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var heightUrl, widthUrl, nameUrl, img, e_1;
@@ -68,10 +67,7 @@ imageRouter.get("/app", function (req, res) { return __awaiter(void 0, void 0, v
                 if (!!fs_1.default.existsSync(path_1.default.resolve("./src") + "/images/".concat(img.name, ".jpg"))) return [3 /*break*/, 3];
                 res.send("image doesn`t exist please try Again 🌍");
                 return [3 /*break*/, 5];
-            case 3: return [4 /*yield*/, (0, sharp_1.default)(path_1.default.resolve("./src") + "/images/".concat(img.name, ".jpg"))
-                    .resize(img.height, img.width)
-                    .toFile(path_1.default.resolve("./src") +
-                    "/edited-images/".concat(img.name, "-").concat(img.height, "-").concat(img.width, ".jpg"))];
+            case 3: return [4 /*yield*/, (0, functionality_1.processingImage)(img.name, img.height, img.width)];
             case 4:
                 _a.sent();
                 res.sendFile(path_1.default.resolve("./src") +

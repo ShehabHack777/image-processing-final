@@ -1,9 +1,8 @@
 import express, { Request, Response, Router } from "express";
-import { checkingFolder } from "../Data/functionality";
+import { checkingFolder, processingImage } from "../Data/functionality";
 import fs from "fs";
 import { Imag } from "../Data/data";
 import path from "path";
-import sharp from "sharp";
 
 const imageRouter: Router = express.Router();
 
@@ -15,7 +14,6 @@ imageRouter.get("/app", async (req: Request, res: Response) => {
 
   checkingFolder();
   try {
-   
     if (
       fs.existsSync(
         path.resolve("./src") +
@@ -26,18 +24,13 @@ imageRouter.get("/app", async (req: Request, res: Response) => {
         path.resolve("./src") +
           `/edited-images/${img.name}-${img.height}-${img.width}.jpg`
       );
-    } else if (!fs.existsSync(path.resolve("./src") + `/images/${img.name}.jpg`))   {
-
+    } else if (
+      !fs.existsSync(path.resolve("./src") + `/images/${img.name}.jpg`)
+    ) {
       res.send("image doesn`t exist please try Again 🌍");
-    } 
-    
-    else {
-   await sharp(path.resolve("./src") + `/images/${img.name}.jpg`)
-        .resize(img.height, img.width)
-        .toFile(
-          path.resolve("./src") +
-            `/edited-images/${img.name}-${img.height}-${img.width}.jpg`
-        );
+    } else {
+      await processingImage(img.name, img.height, img.width);
+
       res.sendFile(
         path.resolve("./src") +
           `/edited-images/${img.name}-${img.height}-${img.width}.jpg`

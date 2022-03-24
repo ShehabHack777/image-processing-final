@@ -39,17 +39,39 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var sharp_1 = __importDefault(require("sharp"));
+// import sharp from "sharp";
+var fs_1 = __importDefault(require("fs"));
+var path_1 = __importDefault(require("path"));
+var rimraf_1 = __importDefault(require("rimraf"));
+var functionality_1 = require("../Data/functionality");
+var testName = "fjord";
+var testHeight = 550;
+var testWidth = 600;
+function resetEveryThing() {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (fs_1.default.existsSync(path_1.default.resolve("./src") +
+                "/edited-images/".concat(testName, "-").concat(testHeight, "-").concat(testWidth, ".jpg"))) {
+                (0, rimraf_1.default)(path_1.default.resolve("./src") + "/edited-images", function () {
+                    console.log("folder deleted");
+                });
+            }
+            return [2 /*return*/];
+        });
+    });
+}
 describe("image processing test", function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        it("sharp module can preform and processes on the images", function () { return __awaiter(void 0, void 0, void 0, function () {
-            var imgT;
+        it("creates a proccessed image and throw it in edited-images and delete the folder  after creation to reset E-T", function () { return __awaiter(void 0, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, (0, sharp_1.default)("./images/icelandwaterfall.jpg")];
+                    case 0: return [4 /*yield*/, (0, functionality_1.processingImage)(testName, testHeight, testWidth)];
                     case 1:
-                        imgT = _a.sent();
-                        expect(imgT).toBeDefined;
+                        _a.sent();
+                        expect(functionality_1.processingImage).not.toThrowError;
+                        return [4 /*yield*/, resetEveryThing()];
+                    case 2:
+                        _a.sent();
                         return [2 /*return*/];
                 }
             });
