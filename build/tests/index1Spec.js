@@ -39,7 +39,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// import sharp from "sharp";
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
 var rimraf_1 = __importDefault(require("rimraf"));
@@ -62,7 +61,7 @@ function resetEveryThing() {
 }
 describe("image processing test", function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        it("creates a proccessed image and throw it in edited-images and delete the folder  after creation to reset E-T", function () { return __awaiter(void 0, void 0, void 0, function () {
+        it("creates a proccessed image and throw it in edited-images and delete the folder  after creation to reset ET", function () { return __awaiter(void 0, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, (0, functionality_1.processingImage)(testName, testHeight, testWidth)];
