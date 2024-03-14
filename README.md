@@ -22,4 +22,12 @@ The Image Processing App provides a user-friendly interface for manipulating ima
 
 ## ℹ️ About
 
-This project
+This project aims to simplify image processing tasks by providing a convenient web-based interface. Whether you're a designer, developer, or hobbyist, this app makes it easy to resize images on the fly.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have any ideas for improvements or new features, feel free to open an issue or submit a pull request.
+
+## 📝 License
+
+This project is licensed under the not MIT License 
